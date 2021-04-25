@@ -110,3 +110,14 @@ function todoFilter(e){
                 }}
     })
 }
+
+
+function saveTodosLocaly(todo){
+    //check if i already have todos or not 
+    let todos;
+    if(localStorage.getItem('todos') === null){
+        todos= [];
+    }else{
+        todos = JSON.parse(localStorage.getItem('todos'))
+    }
+}
