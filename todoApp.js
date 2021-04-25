@@ -2,10 +2,12 @@
 const todoInput = document.querySelector(".todo-input");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list")
+const filterOption = document.querySelector(".filter-todo")
 
 //Event Listeners
 todoButton.addEventListener('click' , addTodo);
 todoList.addEventListener('click' , deleteChecked);
+filterOption.addEventListener('click', todoFilter)
 
 //Functions
 function addTodo(event){
@@ -68,6 +70,43 @@ function deleteChecked(e){
     //check todo
     if(wTF.classList[0] === "checked-btn"){
         const todo = wTF.parentElement;
+        //console.log(todo)
         todo.classList.toggle("checkedTodo")
     }
+}
+
+function todoFilter(e){
+    const todos = todoList.childNodes;
+    console.log(todos)
+    todos.forEach(function(todo){
+        // console.log(e.target.value)
+        // console.log("todo->>>>" , todo.classList)
+         const val = e.target.value
+         if(val=== "all"){
+             if(todo.classList === undefined){
+                    console.log("it's nothing")
+                 }else{
+                      todo.style.display = "flex";
+                       console.log("all" , todo)
+                 }}
+
+        else if(val === "comp"){ 
+            if(todo.classList === undefined){
+                    console.log("it's nothing")
+                 }else if(todo.classList.contains("checkedTodo")){
+                      console.log("iam in Compl")
+                      todo.style.display = "flex";
+                 }else{
+                    todo.style.display = 'none';
+                }}
+         if(val=== "uncomp"){
+             if(todo.classList === undefined){
+                    console.log("it's nothing")
+                 }else if(!todo.classList.contains("checkedTodo")){
+                      console.log("iam in unCompl")
+                      todo.style.display = "flex";
+                 }else{
+                    todo.style.display = 'none';
+                }}
+    })
 }
