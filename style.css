@@ -62,8 +62,8 @@ form button:hover {
 .todo {
   margin: 0.5rem;
   background: white;
-  color: black;
-  font-weight: 700;
+  color: #252677;
+  font-weight: 800;
   font-size: 1.2rem;
   display: flex;
   justify-content: space-between;
