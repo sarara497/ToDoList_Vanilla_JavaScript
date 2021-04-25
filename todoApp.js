@@ -163,3 +163,5 @@ function getTodos(todo) {
     todoList.appendChild(todoDiv);
   });
 }
+
+function removeTodoFromLocal(todo) {}
