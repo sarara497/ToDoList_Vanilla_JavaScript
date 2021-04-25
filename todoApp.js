@@ -60,6 +60,7 @@ function deleteChecked(e) {
   if (wTF.classList[0] === "trash-btn") {
     const todo = wTF.parentElement;
     todo.classList.add("fall");
+    removeTodoFromLocal(todo);
     //this mean after the animation done remove this todo
     todo.addEventListener("transitionend", function () {
       todo.remove();
@@ -164,4 +165,20 @@ function getTodos(todo) {
   });
 }
 
-function removeTodoFromLocal(todo) {}
+function removeTodoFromLocal(todo) {
+  //check if i already have todos or not
+  let todos;
+  if (localStorage.getItem("todos") === null) {
+    todos = [];
+  } else {
+    //getback the exisit todos
+    todos = JSON.parse(localStorage.getItem("todos"));
+  }
+  //   console.log(todo.children[0].innerText);
+  //   console.log(todos.indexOf("House"));
+  const todoText = todo.children[0].innerText;
+  todos.splice(todos.indexOf(todoText), 1);
+
+  //refresh the localStorage with the new array
+  localStorage.setItem("todos", JSON.stringify(todos));
+}
