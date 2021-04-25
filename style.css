@@ -38,6 +38,11 @@ form button {
   cursor: pointer;
   transition: all 0.3s ease;
 }
+form input {
+  color: #252677;
+  background: white;
+  font-weight: 550;
+}
 
 form button:hover {
   background: #252677;
